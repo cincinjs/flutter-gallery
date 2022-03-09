@@ -1,0 +1,2816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.6 on win32)" generated="20220309 17:49:44.337" rpa="false" schemaversion="2">
+<suite id="s1" name="Test Cases" source="C:\Users\Cincin\Documents\GitHub\flutter-gallery\test_cases">
+<suite id="s1-s1" name="Add To Cart" source="C:\Users\Cincin\Documents\GitHub\flutter-gallery\test_cases\add_to_cart.robot">
+<test id="s1-s1-t1" name="Add to cart">
+<kw name="user open flutter gallery app" library="general_keywords" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${HOST}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>udid=${UDID}</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220309 17:49:44.612" endtime="20220309 17:49:58.412"/>
+</kw>
+<status status="PASS" starttime="20220309 17:49:44.611" endtime="20220309 17:49:58.412"/>
+</kw>
+<kw name="And user tap shrine banner" library="home_page">
+<kw name="swipe horizontal element until element is visible" library="general_keywords">
+<arg>${banner_slider}</arg>
+<arg>${banner_shrine}</arg>
+<arg>LEFT</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element1}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:49:58.414" endtime="20220309 17:49:59.764"/>
+</kw>
+<for flavor="IN">
+<var>${robot}</var>
+<value>10</value>
+<iter>
+<var name="${robot}">10</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element2}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element2}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:49:59.764" endtime="20220309 17:49:59.854"/>
+</kw>
+<msg timestamp="20220309 17:49:59.854" level="INFO">${is_visible} = True</msg>
+<status status="PASS" starttime="20220309 17:49:59.764" endtime="20220309 17:49:59.854"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal from element" library="general_keywords">
+<arg>${element1}</arg>
+<arg>${direction}</arg>
+<status status="NOT RUN" starttime="20220309 17:49:59.854" endtime="20220309 17:49:59.854"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:49:59.854" endtime="20220309 17:49:59.854"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220309 17:49:59.855" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220309 17:49:59.854" endtime="20220309 17:49:59.856"/>
+</kw>
+<status status="PASS" starttime="20220309 17:49:59.854" endtime="20220309 17:49:59.856"/>
+</branch>
+<status status="PASS" starttime="20220309 17:49:59.854" endtime="20220309 17:49:59.856"/>
+</if>
+<status status="PASS" starttime="20220309 17:49:59.764" endtime="20220309 17:49:59.856"/>
+</iter>
+<status status="PASS" starttime="20220309 17:49:59.764" endtime="20220309 17:49:59.856"/>
+</for>
+<status status="PASS" starttime="20220309 17:49:58.413" endtime="20220309 17:49:59.856"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${banner_shrine}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:49:59.859" level="INFO">Clicking element 'xpath=//android.view.View[contains(@content-desc, 'Shrine')]'.</msg>
+<status status="PASS" starttime="20220309 17:49:59.856" endtime="20220309 17:49:59.961"/>
+</kw>
+<status status="PASS" starttime="20220309 17:49:58.413" endtime="20220309 17:49:59.961"/>
+</kw>
+<kw name="And user login using credentials" library="login_page">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${field_username}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:49:59.963" endtime="20220309 17:50:01.081"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${field_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:01.084" level="INFO">Typing text 'user' into text field 'xpath=//android.widget.EditText[@text='Username']'</msg>
+<status status="PASS" starttime="20220309 17:50:01.081" endtime="20220309 17:50:01.173"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${field_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:01.176" level="INFO">Typing text 'user' into text field 'xpath=//android.widget.EditText[@text='Password']'</msg>
+<status status="PASS" starttime="20220309 17:50:01.174" endtime="20220309 17:50:01.265"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_next}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:01.268" level="INFO">Clicking element 'accessibility_id=NEXT'.</msg>
+<status status="PASS" starttime="20220309 17:50:01.265" endtime="20220309 17:50:01.322"/>
+</kw>
+<status status="PASS" starttime="20220309 17:49:59.962" endtime="20220309 17:50:01.323"/>
+</kw>
+<kw name="And user add product walter henley white" library="product_page">
+<kw name="swipe horizontal until element is visible" library="general_keywords">
+<arg>${button_walter_henley_white}</arg>
+<arg>LEFT</arg>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>30</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:03.203" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:02.694" endtime="20220309 17:50:03.203"/>
+</kw>
+<msg timestamp="20220309 17:50:03.204" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:01.325" endtime="20220309 17:50:03.204"/>
+</kw>
+<msg timestamp="20220309 17:50:03.204" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:01.325" endtime="20220309 17:50:03.204"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:03.301" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:03.206" endtime="20220309 17:50:03.301"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:03.333" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:03.302" endtime="20220309 17:50:03.333"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:03.334" endtime="20220309 17:50:03.334"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:03.334" endtime="20220309 17:50:03.334"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:03.334" endtime="20220309 17:50:03.335"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:03.335" endtime="20220309 17:50:03.335"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:03.333" endtime="20220309 17:50:03.335"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:03.337" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:03.335" endtime="20220309 17:50:03.337"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:03.339" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:03.337" endtime="20220309 17:50:03.339"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:03.340" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:03.339" endtime="20220309 17:50:03.340"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:03.342" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:03.341" endtime="20220309 17:50:03.342"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:03.335" endtime="20220309 17:50:03.342"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:03.333" endtime="20220309 17:50:03.342"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:03.342" endtime="20220309 17:50:04.642"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:03.205" endtime="20220309 17:50:04.642"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:03.205" endtime="20220309 17:50:04.642"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:04.643" endtime="20220309 17:50:04.643"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:04.642" endtime="20220309 17:50:04.643"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:03.205" endtime="20220309 17:50:04.643"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:01.325" endtime="20220309 17:50:04.643"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:06.213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:05.654" endtime="20220309 17:50:06.213"/>
+</kw>
+<msg timestamp="20220309 17:50:06.214" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:04.644" endtime="20220309 17:50:06.214"/>
+</kw>
+<msg timestamp="20220309 17:50:06.214" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:04.643" endtime="20220309 17:50:06.214"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:06.228" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:06.215" endtime="20220309 17:50:06.228"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:06.245" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:06.229" endtime="20220309 17:50:06.245"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.245"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.245"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.245"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.245"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.245"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:06.247" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:06.246" endtime="20220309 17:50:06.247"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:06.248" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:06.247" endtime="20220309 17:50:06.248"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:06.249" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:06.248" endtime="20220309 17:50:06.250"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:06.251" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:06.250" endtime="20220309 17:50:06.251"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:06.246" endtime="20220309 17:50:06.251"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:06.245" endtime="20220309 17:50:06.251"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:06.251" endtime="20220309 17:50:07.476"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:06.215" endtime="20220309 17:50:07.477"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:06.214" endtime="20220309 17:50:07.477"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:07.477" endtime="20220309 17:50:07.477"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:07.477" endtime="20220309 17:50:07.477"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:06.214" endtime="20220309 17:50:07.477"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:04.643" endtime="20220309 17:50:07.477"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:09.047" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:08.563" endtime="20220309 17:50:09.047"/>
+</kw>
+<msg timestamp="20220309 17:50:09.048" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:07.478" endtime="20220309 17:50:09.048"/>
+</kw>
+<msg timestamp="20220309 17:50:09.049" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:07.477" endtime="20220309 17:50:09.049"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:09.063" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:09.050" endtime="20220309 17:50:09.063"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:09.075" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:09.063" endtime="20220309 17:50:09.076"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.076"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.076"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.076"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.076"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.076"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:09.077" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:09.077" endtime="20220309 17:50:09.077"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:09.078" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:09.077" endtime="20220309 17:50:09.078"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:09.079" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:09.078" endtime="20220309 17:50:09.079"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:09.079" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:09.079" endtime="20220309 17:50:09.080"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.080"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:09.076" endtime="20220309 17:50:09.080"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:09.080" endtime="20220309 17:50:10.292"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:09.049" endtime="20220309 17:50:10.292"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:09.049" endtime="20220309 17:50:10.292"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:10.293" endtime="20220309 17:50:10.293"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:10.292" endtime="20220309 17:50:10.293"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:09.049" endtime="20220309 17:50:10.293"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:07.477" endtime="20220309 17:50:10.293"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:11.901" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:11.364" endtime="20220309 17:50:11.901"/>
+</kw>
+<msg timestamp="20220309 17:50:11.902" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:10.293" endtime="20220309 17:50:11.902"/>
+</kw>
+<msg timestamp="20220309 17:50:11.902" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:10.293" endtime="20220309 17:50:11.902"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:11.918" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:11.903" endtime="20220309 17:50:11.918"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:11.936" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:11.918" endtime="20220309 17:50:11.936"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.937"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.937"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.937"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.937"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.937"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:11.938" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:11.938" endtime="20220309 17:50:11.938"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:11.940" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:11.939" endtime="20220309 17:50:11.940"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:11.941" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:11.940" endtime="20220309 17:50:11.941"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:11.942" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:11.941" endtime="20220309 17:50:11.942"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.942"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:11.937" endtime="20220309 17:50:11.942"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:11.942" endtime="20220309 17:50:13.142"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:11.903" endtime="20220309 17:50:13.142"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:11.902" endtime="20220309 17:50:13.142"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:13.142" endtime="20220309 17:50:13.142"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:13.142" endtime="20220309 17:50:13.142"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:11.902" endtime="20220309 17:50:13.143"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:10.293" endtime="20220309 17:50:13.143"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:14.678" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-5.png"&gt;&lt;img src="appium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:14.257" endtime="20220309 17:50:14.678"/>
+</kw>
+<msg timestamp="20220309 17:50:14.679" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:13.143" endtime="20220309 17:50:14.679"/>
+</kw>
+<msg timestamp="20220309 17:50:14.679" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:13.143" endtime="20220309 17:50:14.679"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:14.694" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:14.680" endtime="20220309 17:50:14.694"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:14.706" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:14.694" endtime="20220309 17:50:14.707"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.707"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.707"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.707"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.707"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.707"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:14.708" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:14.708" endtime="20220309 17:50:14.708"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:14.709" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:14.709" endtime="20220309 17:50:14.709"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:14.710" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:14.709" endtime="20220309 17:50:14.710"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:14.711" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:14.710" endtime="20220309 17:50:14.711"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:14.708" endtime="20220309 17:50:14.711"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:14.707" endtime="20220309 17:50:14.712"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:14.712" endtime="20220309 17:50:15.984"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:14.680" endtime="20220309 17:50:15.985"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:14.679" endtime="20220309 17:50:15.985"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:15.985" endtime="20220309 17:50:15.985"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:15.985" endtime="20220309 17:50:15.985"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:14.679" endtime="20220309 17:50:15.985"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:13.143" endtime="20220309 17:50:15.985"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:17.652" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-6.png"&gt;&lt;img src="appium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:17.216" endtime="20220309 17:50:17.653"/>
+</kw>
+<msg timestamp="20220309 17:50:17.653" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:15.986" endtime="20220309 17:50:17.654"/>
+</kw>
+<msg timestamp="20220309 17:50:17.654" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:15.985" endtime="20220309 17:50:17.654"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:17.669" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:17.654" endtime="20220309 17:50:17.669"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:17.682" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:17.669" endtime="20220309 17:50:17.682"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:17.682" endtime="20220309 17:50:17.682"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:17.683" endtime="20220309 17:50:17.683"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:17.683" endtime="20220309 17:50:17.683"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:17.683" endtime="20220309 17:50:17.683"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:17.682" endtime="20220309 17:50:17.683"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:17.684" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:17.683" endtime="20220309 17:50:17.684"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:17.685" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:17.684" endtime="20220309 17:50:17.685"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:17.686" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:17.685" endtime="20220309 17:50:17.686"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:17.686" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:17.686" endtime="20220309 17:50:17.686"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:17.683" endtime="20220309 17:50:17.686"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:17.682" endtime="20220309 17:50:17.686"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:17.686" endtime="20220309 17:50:19.002"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:17.654" endtime="20220309 17:50:19.002"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:17.654" endtime="20220309 17:50:19.002"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:19.002" endtime="20220309 17:50:19.002"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:19.002" endtime="20220309 17:50:19.002"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:17.654" endtime="20220309 17:50:19.002"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:15.985" endtime="20220309 17:50:19.002"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:20.430" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-7.png"&gt;&lt;img src="appium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:20.050" endtime="20220309 17:50:20.430"/>
+</kw>
+<msg timestamp="20220309 17:50:20.431" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:19.003" endtime="20220309 17:50:20.431"/>
+</kw>
+<msg timestamp="20220309 17:50:20.431" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:19.003" endtime="20220309 17:50:20.431"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:20.445" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:20.432" endtime="20220309 17:50:20.445"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:20.458" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:20.445" endtime="20220309 17:50:20.458"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.459"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.459"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.459"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.459"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:20.458" endtime="20220309 17:50:20.459"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:20.460" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.460"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:20.461" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:20.460" endtime="20220309 17:50:20.461"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:20.462" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:20.461" endtime="20220309 17:50:20.462"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:20.463" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:20.462" endtime="20220309 17:50:20.463"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:20.459" endtime="20220309 17:50:20.463"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:20.458" endtime="20220309 17:50:20.463"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:20.463" endtime="20220309 17:50:21.658"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:20.432" endtime="20220309 17:50:21.658"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:20.432" endtime="20220309 17:50:21.658"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:21.658" endtime="20220309 17:50:21.658"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:21.658" endtime="20220309 17:50:21.659"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:20.431" endtime="20220309 17:50:21.659"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:19.003" endtime="20220309 17:50:21.659"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:23.233" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-8.png"&gt;&lt;img src="appium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:22.712" endtime="20220309 17:50:23.234"/>
+</kw>
+<msg timestamp="20220309 17:50:23.235" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:21.660" endtime="20220309 17:50:23.235"/>
+</kw>
+<msg timestamp="20220309 17:50:23.235" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:21.659" endtime="20220309 17:50:23.235"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:23.249" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:23.235" endtime="20220309 17:50:23.249"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:23.263" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:23.250" endtime="20220309 17:50:23.263"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:23.264" endtime="20220309 17:50:23.264"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:23.264" endtime="20220309 17:50:23.264"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:23.264" endtime="20220309 17:50:23.264"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:23.264" endtime="20220309 17:50:23.264"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:23.263" endtime="20220309 17:50:23.264"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:23.265" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:23.265" endtime="20220309 17:50:23.265"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:23.266" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:23.266" endtime="20220309 17:50:23.266"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:23.267" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:23.267" endtime="20220309 17:50:23.267"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:23.268" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:23.267" endtime="20220309 17:50:23.268"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:23.264" endtime="20220309 17:50:23.268"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:23.263" endtime="20220309 17:50:23.268"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:23.268" endtime="20220309 17:50:24.458"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:23.235" endtime="20220309 17:50:24.458"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:23.235" endtime="20220309 17:50:24.458"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:24.459" endtime="20220309 17:50:24.459"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:24.458" endtime="20220309 17:50:24.459"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:23.235" endtime="20220309 17:50:24.459"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:21.659" endtime="20220309 17:50:24.459"/>
+</iter>
+<iter>
+<var name="${i}">8</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:25.975" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-9.png"&gt;&lt;img src="appium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:25.543" endtime="20220309 17:50:25.975"/>
+</kw>
+<msg timestamp="20220309 17:50:25.976" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:24.460" endtime="20220309 17:50:25.976"/>
+</kw>
+<msg timestamp="20220309 17:50:25.976" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:24.460" endtime="20220309 17:50:25.977"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:25.990" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:25.977" endtime="20220309 17:50:25.990"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:26.004" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:25.990" endtime="20220309 17:50:26.004"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.004"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.004"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.004"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.004"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.004"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:26.005" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:26.005" endtime="20220309 17:50:26.006"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:26.006" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:26.006" endtime="20220309 17:50:26.006"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:26.007" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:26.006" endtime="20220309 17:50:26.007"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:26.008" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:26.007" endtime="20220309 17:50:26.008"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:26.005" endtime="20220309 17:50:26.008"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:26.004" endtime="20220309 17:50:26.008"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:26.008" endtime="20220309 17:50:27.171"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:25.977" endtime="20220309 17:50:27.171"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:25.977" endtime="20220309 17:50:27.171"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:27.171" endtime="20220309 17:50:27.171"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:27.171" endtime="20220309 17:50:27.171"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:25.977" endtime="20220309 17:50:27.171"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:24.459" endtime="20220309 17:50:27.171"/>
+</iter>
+<iter>
+<var name="${i}">9</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:28.652" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-10.png"&gt;&lt;img src="appium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:28.224" endtime="20220309 17:50:28.652"/>
+</kw>
+<msg timestamp="20220309 17:50:28.653" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:27.172" endtime="20220309 17:50:28.653"/>
+</kw>
+<msg timestamp="20220309 17:50:28.654" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:27.172" endtime="20220309 17:50:28.654"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:28.668" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:28.654" endtime="20220309 17:50:28.668"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:28.686" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:28.668" endtime="20220309 17:50:28.686"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:28.687" endtime="20220309 17:50:28.687"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:28.687" endtime="20220309 17:50:28.687"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:28.688" endtime="20220309 17:50:28.688"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:28.688" endtime="20220309 17:50:28.688"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:28.687" endtime="20220309 17:50:28.688"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:28.690" level="INFO">${START_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:28.689" endtime="20220309 17:50:28.690"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:28.691" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:28.690" endtime="20220309 17:50:28.691"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:28.693" level="INFO">${END_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:28.692" endtime="20220309 17:50:28.693"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:28.694" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:28.693" endtime="20220309 17:50:28.694"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:28.688" endtime="20220309 17:50:28.694"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:28.686" endtime="20220309 17:50:28.694"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:28.694" endtime="20220309 17:50:29.873"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:28.654" endtime="20220309 17:50:29.873"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:28.654" endtime="20220309 17:50:29.874"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:29.874" endtime="20220309 17:50:29.874"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:29.874" endtime="20220309 17:50:29.874"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:28.654" endtime="20220309 17:50:29.875"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:27.171" endtime="20220309 17:50:29.875"/>
+</iter>
+<iter>
+<var name="${i}">10</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:29.876" endtime="20220309 17:50:30.445"/>
+</kw>
+<msg timestamp="20220309 17:50:30.445" level="INFO">${is_visible} = True</msg>
+<status status="PASS" starttime="20220309 17:50:29.875" endtime="20220309 17:50:30.445"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<status status="NOT RUN" starttime="20220309 17:50:30.445" endtime="20220309 17:50:30.446"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:30.445" endtime="20220309 17:50:30.446"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220309 17:50:30.447" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220309 17:50:30.446" endtime="20220309 17:50:30.447"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:30.446" endtime="20220309 17:50:30.447"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:30.445" endtime="20220309 17:50:30.447"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:29.875" endtime="20220309 17:50:30.447"/>
+</iter>
+<status status="PASS" starttime="20220309 17:50:01.324" endtime="20220309 17:50:30.447"/>
+</for>
+<status status="PASS" starttime="20220309 17:50:01.324" endtime="20220309 17:50:30.447"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${button_walter_henley_white}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:30.447" endtime="20220309 17:50:30.493"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_walter_henley_white}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:30.497" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@content-desc, "Walter henley (white)")]'.</msg>
+<status status="PASS" starttime="20220309 17:50:30.494" endtime="20220309 17:50:30.554"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:01.323" endtime="20220309 17:50:30.554"/>
+</kw>
+<kw name="And user add product shrug bag" library="product_page">
+<kw name="swipe horizontal until element is visible" library="general_keywords">
+<arg>${button_shrug_bag}</arg>
+<arg>RIGHT</arg>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>30</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:31.990" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-11.png"&gt;&lt;img src="appium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:31.574" endtime="20220309 17:50:31.990"/>
+</kw>
+<msg timestamp="20220309 17:50:31.991" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:30.557" endtime="20220309 17:50:31.991"/>
+</kw>
+<msg timestamp="20220309 17:50:31.991" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:30.556" endtime="20220309 17:50:31.991"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:32.005" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:31.992" endtime="20220309 17:50:32.005"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:32.020" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:32.005" endtime="20220309 17:50:32.020"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:32.021" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:32.020" endtime="20220309 17:50:32.021"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:32.022" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:32.021" endtime="20220309 17:50:32.022"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:32.023" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:32.022" endtime="20220309 17:50:32.023"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:32.024" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:32.023" endtime="20220309 17:50:32.024"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:32.020" endtime="20220309 17:50:32.024"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:32.024" endtime="20220309 17:50:32.024"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:32.024" endtime="20220309 17:50:32.024"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:32.024" endtime="20220309 17:50:32.025"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:32.025" endtime="20220309 17:50:32.025"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:32.024" endtime="20220309 17:50:32.025"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:32.020" endtime="20220309 17:50:32.025"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:32.025" endtime="20220309 17:50:33.235"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:31.991" endtime="20220309 17:50:33.235"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:31.991" endtime="20220309 17:50:33.235"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:33.236" endtime="20220309 17:50:33.236"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:33.236" endtime="20220309 17:50:33.236"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:31.991" endtime="20220309 17:50:33.236"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:30.556" endtime="20220309 17:50:33.236"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:34.774" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-12.png"&gt;&lt;img src="appium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:34.327" endtime="20220309 17:50:34.774"/>
+</kw>
+<msg timestamp="20220309 17:50:34.775" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:33.237" endtime="20220309 17:50:34.775"/>
+</kw>
+<msg timestamp="20220309 17:50:34.775" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:33.236" endtime="20220309 17:50:34.775"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:34.786" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:34.776" endtime="20220309 17:50:34.786"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:34.801" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:34.787" endtime="20220309 17:50:34.802"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:34.803" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:34.802" endtime="20220309 17:50:34.803"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:34.804" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:34.803" endtime="20220309 17:50:34.804"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:34.805" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:34.804" endtime="20220309 17:50:34.805"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:34.806" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:34.805" endtime="20220309 17:50:34.806"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:34.802" endtime="20220309 17:50:34.806"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:34.806" endtime="20220309 17:50:34.806"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:34.806" endtime="20220309 17:50:34.806"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:34.806" endtime="20220309 17:50:34.806"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:34.807" endtime="20220309 17:50:34.807"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:34.806" endtime="20220309 17:50:34.807"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:34.802" endtime="20220309 17:50:34.807"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:34.807" endtime="20220309 17:50:36.023"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:34.775" endtime="20220309 17:50:36.023"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:34.775" endtime="20220309 17:50:36.023"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:36.024" endtime="20220309 17:50:36.024"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:36.023" endtime="20220309 17:50:36.024"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:34.775" endtime="20220309 17:50:36.024"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:33.236" endtime="20220309 17:50:36.024"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:37.730" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-13.png"&gt;&lt;img src="appium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:37.255" endtime="20220309 17:50:37.730"/>
+</kw>
+<msg timestamp="20220309 17:50:37.731" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:36.025" endtime="20220309 17:50:37.731"/>
+</kw>
+<msg timestamp="20220309 17:50:37.731" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:36.024" endtime="20220309 17:50:37.731"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:37.744" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:37.732" endtime="20220309 17:50:37.744"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:37.757" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:37.744" endtime="20220309 17:50:37.758"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:37.759" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:37.758" endtime="20220309 17:50:37.759"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:37.760" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:37.759" endtime="20220309 17:50:37.760"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:37.761" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:37.760" endtime="20220309 17:50:37.761"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:37.762" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:37.762" endtime="20220309 17:50:37.762"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:37.758" endtime="20220309 17:50:37.762"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:37.762" endtime="20220309 17:50:37.762"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:37.763" endtime="20220309 17:50:37.763"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:37.763" endtime="20220309 17:50:37.763"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:37.763" endtime="20220309 17:50:37.763"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:37.762" endtime="20220309 17:50:37.763"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:37.758" endtime="20220309 17:50:37.763"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:37.763" endtime="20220309 17:50:38.955"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:37.732" endtime="20220309 17:50:38.956"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:37.732" endtime="20220309 17:50:38.956"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:38.956" endtime="20220309 17:50:38.957"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:38.956" endtime="20220309 17:50:38.957"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:37.731" endtime="20220309 17:50:38.957"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:36.024" endtime="20220309 17:50:38.957"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:40.468" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-14.png"&gt;&lt;img src="appium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:39.994" endtime="20220309 17:50:40.468"/>
+</kw>
+<msg timestamp="20220309 17:50:40.469" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:38.958" endtime="20220309 17:50:40.469"/>
+</kw>
+<msg timestamp="20220309 17:50:40.470" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:38.957" endtime="20220309 17:50:40.470"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:40.482" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:40.470" endtime="20220309 17:50:40.482"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:40.496" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:40.482" endtime="20220309 17:50:40.496"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:40.497" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:40.496" endtime="20220309 17:50:40.497"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:40.498" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:40.497" endtime="20220309 17:50:40.498"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:40.499" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:40.498" endtime="20220309 17:50:40.499"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:40.500" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:40.499" endtime="20220309 17:50:40.500"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:40.496" endtime="20220309 17:50:40.500"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:40.500" endtime="20220309 17:50:40.500"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:40.500" endtime="20220309 17:50:40.500"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:40.500" endtime="20220309 17:50:40.500"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:40.500" endtime="20220309 17:50:40.500"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:40.500" endtime="20220309 17:50:40.500"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:40.496" endtime="20220309 17:50:40.500"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:40.500" endtime="20220309 17:50:41.722"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:40.470" endtime="20220309 17:50:41.722"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:40.470" endtime="20220309 17:50:41.722"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:41.723" endtime="20220309 17:50:41.723"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:41.722" endtime="20220309 17:50:41.723"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:40.470" endtime="20220309 17:50:41.723"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:38.957" endtime="20220309 17:50:41.723"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:43.311" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-15.png"&gt;&lt;img src="appium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:42.908" endtime="20220309 17:50:43.311"/>
+</kw>
+<msg timestamp="20220309 17:50:43.313" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:41.723" endtime="20220309 17:50:43.313"/>
+</kw>
+<msg timestamp="20220309 17:50:43.313" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:41.723" endtime="20220309 17:50:43.313"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:43.327" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:43.314" endtime="20220309 17:50:43.327"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:43.340" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:43.327" endtime="20220309 17:50:43.340"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:43.341" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:43.340" endtime="20220309 17:50:43.341"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:43.342" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:43.341" endtime="20220309 17:50:43.342"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:43.343" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:43.342" endtime="20220309 17:50:43.343"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:43.344" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:43.343" endtime="20220309 17:50:43.344"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:43.340" endtime="20220309 17:50:43.344"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:43.344" endtime="20220309 17:50:43.344"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:43.344" endtime="20220309 17:50:43.344"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:43.345" endtime="20220309 17:50:43.345"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:43.345" endtime="20220309 17:50:43.345"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:43.344" endtime="20220309 17:50:43.345"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:43.340" endtime="20220309 17:50:43.345"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:43.345" endtime="20220309 17:50:44.556"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:43.314" endtime="20220309 17:50:44.556"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:43.314" endtime="20220309 17:50:44.556"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:44.556" endtime="20220309 17:50:44.556"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:44.556" endtime="20220309 17:50:44.556"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:43.314" endtime="20220309 17:50:44.556"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:41.723" endtime="20220309 17:50:44.557"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:46.213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-16.png"&gt;&lt;img src="appium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:45.686" endtime="20220309 17:50:46.213"/>
+</kw>
+<msg timestamp="20220309 17:50:46.214" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:44.557" endtime="20220309 17:50:46.214"/>
+</kw>
+<msg timestamp="20220309 17:50:46.214" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:44.557" endtime="20220309 17:50:46.214"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:46.227" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:46.215" endtime="20220309 17:50:46.227"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:46.239" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:46.227" endtime="20220309 17:50:46.239"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:46.240" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:46.239" endtime="20220309 17:50:46.240"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:46.241" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:46.240" endtime="20220309 17:50:46.241"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:46.241" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:46.241" endtime="20220309 17:50:46.241"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:46.241" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:46.241" endtime="20220309 17:50:46.241"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:46.239" endtime="20220309 17:50:46.241"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:46.243" endtime="20220309 17:50:46.243"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:46.243" endtime="20220309 17:50:46.243"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:46.243" endtime="20220309 17:50:46.243"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:46.243" endtime="20220309 17:50:46.243"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:46.241" endtime="20220309 17:50:46.243"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:46.239" endtime="20220309 17:50:46.243"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:46.243" endtime="20220309 17:50:47.406"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:46.214" endtime="20220309 17:50:47.407"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:46.214" endtime="20220309 17:50:47.407"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:47.407" endtime="20220309 17:50:47.407"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:47.407" endtime="20220309 17:50:47.407"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:46.214" endtime="20220309 17:50:47.407"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:44.557" endtime="20220309 17:50:47.407"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220309 17:50:48.937" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-17.png"&gt;&lt;img src="appium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220309 17:50:48.514" endtime="20220309 17:50:48.937"/>
+</kw>
+<msg timestamp="20220309 17:50:48.938" level="FAIL">Element locator 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]' did not match any elements after 1 second</msg>
+<status status="FAIL" starttime="20220309 17:50:47.408" endtime="20220309 17:50:48.938"/>
+</kw>
+<msg timestamp="20220309 17:50:48.938" level="INFO">${is_visible} = False</msg>
+<status status="PASS" starttime="20220309 17:50:47.408" endtime="20220309 17:50:48.938"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<kw name="Get Window Width" library="AppiumLibrary">
+<var>${width}</var>
+<doc>Get current device width.</doc>
+<msg timestamp="20220309 17:50:48.954" level="INFO">${width} = 1080</msg>
+<status status="PASS" starttime="20220309 17:50:48.939" endtime="20220309 17:50:48.954"/>
+</kw>
+<kw name="Get Window Height" library="AppiumLibrary">
+<var>${height}</var>
+<doc>Get current device height.</doc>
+<msg timestamp="20220309 17:50:48.967" level="INFO">${height} = 1794</msg>
+<status status="PASS" starttime="20220309 17:50:48.954" endtime="20220309 17:50:48.967"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${direction}&quot; == &quot;RIGHT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:48.968" level="INFO">${START_X} = 108.0</msg>
+<status status="PASS" starttime="20220309 17:50:48.967" endtime="20220309 17:50:48.968"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:48.969" level="INFO">${START_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:48.968" endtime="20220309 17:50:48.969"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:48.970" level="INFO">${END_X} = 972.0</msg>
+<status status="PASS" starttime="20220309 17:50:48.969" endtime="20220309 17:50:48.970"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:48.971" level="INFO">${END_Y} = 897.0</msg>
+<status status="PASS" starttime="20220309 17:50:48.970" endtime="20220309 17:50:48.971"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:48.967" endtime="20220309 17:50:48.971"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${direction}&quot; == &quot;LEFT&quot;">
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_X}</var>
+<arg>(${width} * 0.9)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:48.971" endtime="20220309 17:50:48.971"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${START_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:48.971" endtime="20220309 17:50:48.971"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_X}</var>
+<arg>(${width} * 0.1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:48.971" endtime="20220309 17:50:48.971"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${END_Y}</var>
+<arg>(${height} * 0.5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:48.971" endtime="20220309 17:50:48.972"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:48.971" endtime="20220309 17:50:48.972"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:48.967" endtime="20220309 17:50:48.972"/>
+</if>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>${START_X}</arg>
+<arg>${START_Y}</arg>
+<arg>${END_X}</arg>
+<arg>${END_Y}</arg>
+<arg>1500</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20220309 17:50:48.972" endtime="20220309 17:50:50.144"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:48.939" endtime="20220309 17:50:50.144"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:48.939" endtime="20220309 17:50:50.144"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<status status="NOT RUN" starttime="20220309 17:50:50.144" endtime="20220309 17:50:50.145"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:50.144" endtime="20220309 17:50:50.145"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:48.939" endtime="20220309 17:50:50.145"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:47.408" endtime="20220309 17:50:50.145"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${element}</arg>
+<arg>1</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:50.145" endtime="20220309 17:50:50.411"/>
+</kw>
+<msg timestamp="20220309 17:50:50.411" level="INFO">${is_visible} = True</msg>
+<status status="PASS" starttime="20220309 17:50:50.145" endtime="20220309 17:50:50.411"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_visible}&quot; == &quot;False&quot;">
+<kw name="swipe horizontal" library="general_keywords">
+<arg>${direction}</arg>
+<status status="NOT RUN" starttime="20220309 17:50:50.412" endtime="20220309 17:50:50.412"/>
+</kw>
+<status status="NOT RUN" starttime="20220309 17:50:50.411" endtime="20220309 17:50:50.412"/>
+</branch>
+<branch type="ELSE">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220309 17:50:50.413" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220309 17:50:50.412" endtime="20220309 17:50:50.413"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:50.412" endtime="20220309 17:50:50.413"/>
+</branch>
+<status status="PASS" starttime="20220309 17:50:50.411" endtime="20220309 17:50:50.413"/>
+</if>
+<status status="PASS" starttime="20220309 17:50:50.145" endtime="20220309 17:50:50.414"/>
+</iter>
+<status status="PASS" starttime="20220309 17:50:30.556" endtime="20220309 17:50:50.414"/>
+</for>
+<status status="PASS" starttime="20220309 17:50:30.556" endtime="20220309 17:50:50.414"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${button_shrug_bag}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:50.414" endtime="20220309 17:50:50.457"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_shrug_bag}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:50.460" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@content-desc, "Shrug bag")]'.</msg>
+<status status="PASS" starttime="20220309 17:50:50.457" endtime="20220309 17:50:50.511"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:30.555" endtime="20220309 17:50:50.511"/>
+</kw>
+<kw name="When user open shopping cart" library="product_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${button_shopping_cart}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:50.512" endtime="20220309 17:50:51.264"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_shopping_cart}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:51.266" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@content-desc, "Shopping cart")]'.</msg>
+<status status="PASS" starttime="20220309 17:50:51.264" endtime="20220309 17:50:51.315"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:50.512" endtime="20220309 17:50:51.316"/>
+</kw>
+<kw name="user verify total of shopping cart" library="product_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${list_product}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:51.316" endtime="20220309 17:50:52.357"/>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<var>${count}</var>
+<arg>${list_product}</arg>
+<doc>Returns number of elements matching ``xpath``</doc>
+<msg timestamp="20220309 17:50:52.386" level="INFO">${count} = 2</msg>
+<status status="PASS" starttime="20220309 17:50:52.357" endtime="20220309 17:50:52.386"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${total_product_price}</arg>
+<arg>0</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220309 17:50:52.388" level="INFO">${total_product_price} = 0</msg>
+<status status="PASS" starttime="20220309 17:50:52.386" endtime="20220309 17:50:52.388"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${count}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${price}</var>
+<arg>//android.widget.Button[contains(@content-desc, "Close cart")]/following-sibling::android.view.View[2]/android.view.View[${INDEX}]</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.436" level="INFO">Element '//android.widget.Button[contains(@content-desc, "Close cart")]/following-sibling::android.view.View[2]/android.view.View[1]' attribute 'content-desc' value 'Walter henley (white)
+Quantity: 1
+x $38' </msg>
+<msg timestamp="20220309 17:50:52.436" level="INFO">${price} = Walter henley (white)
+Quantity: 1
+x $38</msg>
+<status status="PASS" starttime="20220309 17:50:52.389" endtime="20220309 17:50:52.436"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220309 17:50:52.437" level="INFO">Walter henley (white)
+Quantity: 1
+x $38</msg>
+<status status="PASS" starttime="20220309 17:50:52.436" endtime="20220309 17:50:52.437"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${product_price}</var>
+<arg>${price}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.438" level="INFO">${product_price} = $38</msg>
+<status status="PASS" starttime="20220309 17:50:52.437" endtime="20220309 17:50:52.438"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.439" level="INFO">${product_price} = 38</msg>
+<status status="PASS" starttime="20220309 17:50:52.438" endtime="20220309 17:50:52.439"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.440" level="INFO">${product_price} = 38.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.439" endtime="20220309 17:50:52.440"/>
+</kw>
+<msg timestamp="20220309 17:50:52.440" level="INFO">${product_price} = 38.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.437" endtime="20220309 17:50:52.440"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220309 17:50:52.441" level="INFO">38.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.441" endtime="20220309 17:50:52.441"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_product_price}</var>
+<arg>${total_product_price}+${product_price}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:52.442" level="INFO">${total_product_price} = 38.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.441" endtime="20220309 17:50:52.442"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:52.389" endtime="20220309 17:50:52.442"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${price}</var>
+<arg>//android.widget.Button[contains(@content-desc, "Close cart")]/following-sibling::android.view.View[2]/android.view.View[${INDEX}]</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.485" level="INFO">Element '//android.widget.Button[contains(@content-desc, "Close cart")]/following-sibling::android.view.View[2]/android.view.View[2]' attribute 'content-desc' value 'Shrug bag
+Quantity: 1
+x $198' </msg>
+<msg timestamp="20220309 17:50:52.485" level="INFO">${price} = Shrug bag
+Quantity: 1
+x $198</msg>
+<status status="PASS" starttime="20220309 17:50:52.442" endtime="20220309 17:50:52.485"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220309 17:50:52.486" level="INFO">Shrug bag
+Quantity: 1
+x $198</msg>
+<status status="PASS" starttime="20220309 17:50:52.485" endtime="20220309 17:50:52.486"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${product_price}</var>
+<arg>${price}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.490" level="INFO">${product_price} = $198</msg>
+<status status="PASS" starttime="20220309 17:50:52.487" endtime="20220309 17:50:52.491"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.492" level="INFO">${product_price} = 198</msg>
+<status status="PASS" starttime="20220309 17:50:52.491" endtime="20220309 17:50:52.493"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.494" level="INFO">${product_price} = 198.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.493" endtime="20220309 17:50:52.494"/>
+</kw>
+<msg timestamp="20220309 17:50:52.495" level="INFO">${product_price} = 198.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.486" endtime="20220309 17:50:52.495"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220309 17:50:52.496" level="INFO">198.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.495" endtime="20220309 17:50:52.496"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_product_price}</var>
+<arg>${total_product_price}+${product_price}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:52.497" level="INFO">${total_product_price} = 236.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.496" endtime="20220309 17:50:52.497"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:52.442" endtime="20220309 17:50:52.497"/>
+</iter>
+<status status="PASS" starttime="20220309 17:50:52.388" endtime="20220309 17:50:52.497"/>
+</for>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${shipping_fee}</var>
+<arg>${text_shipping}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.544" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc, "Shipping")]' attribute 'content-desc' value 'Shipping:
+$14.00' </msg>
+<msg timestamp="20220309 17:50:52.545" level="INFO">${shipping_fee} = Shipping:
+$14.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.498" endtime="20220309 17:50:52.545"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${shipping_fee}</var>
+<arg>${shipping_fee}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.546" level="INFO">${product_price} = $14.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.545" endtime="20220309 17:50:52.546"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.547" level="INFO">${product_price} = 14.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.546" endtime="20220309 17:50:52.547"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.547" level="INFO">${product_price} = 14.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.547" endtime="20220309 17:50:52.547"/>
+</kw>
+<msg timestamp="20220309 17:50:52.548" level="INFO">${shipping_fee} = 14.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.545" endtime="20220309 17:50:52.548"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${tax_fee}</var>
+<arg>${text_tax}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.586" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc, "Tax")]' attribute 'content-desc' value 'Tax:
+$14.16' </msg>
+<msg timestamp="20220309 17:50:52.586" level="INFO">${tax_fee} = Tax:
+$14.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.548" endtime="20220309 17:50:52.586"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${tax_fee}</var>
+<arg>${tax_fee}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.587" level="INFO">${product_price} = $14.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.587" endtime="20220309 17:50:52.587"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.588" level="INFO">${product_price} = 14.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.587" endtime="20220309 17:50:52.588"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.589" level="INFO">${product_price} = 14.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.588" endtime="20220309 17:50:52.589"/>
+</kw>
+<msg timestamp="20220309 17:50:52.589" level="INFO">${tax_fee} = 14.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.586" endtime="20220309 17:50:52.589"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${text_total_product_price}</var>
+<arg>${text_subtotal}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.633" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc, "Subtotal")]' attribute 'content-desc' value 'Subtotal:
+$236.00' </msg>
+<msg timestamp="20220309 17:50:52.633" level="INFO">${text_total_product_price} = Subtotal:
+$236.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.589" endtime="20220309 17:50:52.633"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${text_total_product_price}</var>
+<arg>${text_total_product_price}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.635" level="INFO">${product_price} = $236.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.634" endtime="20220309 17:50:52.635"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.636" level="INFO">${product_price} = 236.00</msg>
+<status status="PASS" starttime="20220309 17:50:52.635" endtime="20220309 17:50:52.636"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.637" level="INFO">${product_price} = 236.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.636" endtime="20220309 17:50:52.637"/>
+</kw>
+<msg timestamp="20220309 17:50:52.637" level="INFO">${text_total_product_price} = 236.0</msg>
+<status status="PASS" starttime="20220309 17:50:52.633" endtime="20220309 17:50:52.637"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${text_total_product_price}</arg>
+<arg>${total_product_price}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220309 17:50:52.637" endtime="20220309 17:50:52.638"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_price}</var>
+<arg>${total_product_price}+${shipping_fee}+${tax_fee}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220309 17:50:52.639" level="INFO">${total_price} = 264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.638" endtime="20220309 17:50:52.639"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${text_total_price}</var>
+<arg>${text_total}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:52.682" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc,"TOTAL")]' attribute 'content-desc' value 'TOTAL
+$264.16' </msg>
+<msg timestamp="20220309 17:50:52.682" level="INFO">${text_total_price} = TOTAL
+$264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.639" endtime="20220309 17:50:52.682"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${text_total_price}</var>
+<arg>${text_total_price}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.684" level="INFO">${product_price} = $264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.683" endtime="20220309 17:50:52.684"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:52.685" level="INFO">${product_price} = 264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.684" endtime="20220309 17:50:52.685"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:52.686" level="INFO">${product_price} = 264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.686" endtime="20220309 17:50:52.687"/>
+</kw>
+<msg timestamp="20220309 17:50:52.687" level="INFO">${text_total_price} = 264.16</msg>
+<status status="PASS" starttime="20220309 17:50:52.682" endtime="20220309 17:50:52.687"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${text_total_price}</arg>
+<arg>${total_price}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220309 17:50:52.687" endtime="20220309 17:50:52.688"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:51.316" endtime="20220309 17:50:52.689"/>
+</kw>
+<kw name="And user clear shopping cart" library="product_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${button_clear_cart}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:52.690" endtime="20220309 17:50:52.722"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_clear_cart}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:52.725" level="INFO">Clicking element 'accessibility_id=CLEAR CART'.</msg>
+<status status="PASS" starttime="20220309 17:50:52.723" endtime="20220309 17:50:52.765"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:52.689" endtime="20220309 17:50:52.765"/>
+</kw>
+<kw name="When user open shopping cart" library="product_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${button_shopping_cart}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:52.767" endtime="20220309 17:50:53.838"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${button_shopping_cart}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220309 17:50:53.841" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@content-desc, "Shopping cart")]'.</msg>
+<status status="PASS" starttime="20220309 17:50:53.839" endtime="20220309 17:50:53.886"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:52.766" endtime="20220309 17:50:53.886"/>
+</kw>
+<kw name="Then user verify cart is empty" library="product_page">
+<kw name="Convert To Number" library="BuiltIn">
+<var>${expected_value}</var>
+<arg>0.0</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:53.888" level="INFO">${expected_value} = 0.0</msg>
+<status status="PASS" starttime="20220309 17:50:53.887" endtime="20220309 17:50:53.888"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${text_total}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220309 17:50:53.888" endtime="20220309 17:50:54.948"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${total}</var>
+<arg>${text_total}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20220309 17:50:54.990" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc,"TOTAL")]' attribute 'content-desc' value 'TOTAL
+$0.00' </msg>
+<msg timestamp="20220309 17:50:54.990" level="INFO">${total} = TOTAL
+$0.00</msg>
+<status status="PASS" starttime="20220309 17:50:54.948" endtime="20220309 17:50:54.990"/>
+</kw>
+<kw name="get product price" library="product_page">
+<var>${total}</var>
+<arg>${total}</arg>
+<kw name="Remove String Using Regexp" library="String">
+<var>${product_price}</var>
+<arg>${string_price}</arg>
+<arg>^[^$]*</arg>
+<doc>Removes ``patterns`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:54.992" level="INFO">${product_price} = $0.00</msg>
+<status status="PASS" starttime="20220309 17:50:54.991" endtime="20220309 17:50:54.992"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20220309 17:50:54.993" level="INFO">${product_price} = 0.00</msg>
+<status status="PASS" starttime="20220309 17:50:54.992" endtime="20220309 17:50:54.993"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${product_price}</var>
+<arg>${product_price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20220309 17:50:54.994" level="INFO">${product_price} = 0.0</msg>
+<status status="PASS" starttime="20220309 17:50:54.993" endtime="20220309 17:50:54.994"/>
+</kw>
+<msg timestamp="20220309 17:50:54.994" level="INFO">${total} = 0.0</msg>
+<status status="PASS" starttime="20220309 17:50:54.990" endtime="20220309 17:50:54.994"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${total}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220309 17:50:54.994" endtime="20220309 17:50:54.995"/>
+</kw>
+<status status="PASS" starttime="20220309 17:50:53.887" endtime="20220309 17:50:54.995"/>
+</kw>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20220309 17:50:54.996" endtime="20220309 17:50:55.497"/>
+</kw>
+<timeout value="4 minutes"/>
+<status status="PASS" starttime="20220309 17:49:44.611" endtime="20220309 17:50:55.498"/>
+</test>
+<status status="PASS" starttime="20220309 17:49:44.404" endtime="20220309 17:50:55.499"/>
+</suite>
+<status status="PASS" starttime="20220309 17:49:44.339" endtime="20220309 17:50:55.502"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Cases">Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Add To Cart">Test Cases.Add To Cart</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
